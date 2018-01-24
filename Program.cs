@@ -13,16 +13,14 @@ namespace Lab1
             double Width;
             double Length;
             double Height;
-            double Area;
-            double Perimeter;
-            double Volume;
             string again;
             bool repeat = true;
 
-            Console.WriteLine("Welcome to the Grand Circus' Room Detail Generator");
+            Console.WriteLine("Welcome to the Grand Circus' Room Detail Generator!!!");
 
             while (repeat == true)
             {
+
                 Console.WriteLine("Please Enter Width:");
                 Width = double.Parse(Console.ReadLine());
 
@@ -32,13 +30,10 @@ namespace Lab1
                 Console.WriteLine("Please Enter Height:");
                 Height = double.Parse(Console.ReadLine());
 
-                Area = Width * Length;
-                Perimeter = (2 * Width) + (2 * Length);
-                Volume = (Length * Width * Height);
 
-                Console.WriteLine($"Area: {Area}");
-                Console.WriteLine($"Perimeter: {Perimeter}");
-                Console.WriteLine($"Volume: {Volume}");
+                Console.WriteLine($"Area: {Area(Width,Length)}");
+                Console.WriteLine($"Perimeter: {Perimeter(Width,Length)}");
+                Console.WriteLine($"Volume: {Volume(Width,Length,Height)}");
 
                 Console.WriteLine("Continue? (y/n)");
                 again = Console.ReadLine();
@@ -46,18 +41,32 @@ namespace Lab1
                 if (again == "Y" || again == "y" )
                 {
                     repeat = true;
+                    Console.Clear();
                 }
                 else
                 {
                     repeat = false;
+                    Console.Clear();
                     Console.WriteLine("Goodbye!!");
                 }
-
-            
-
-
             }
-            
+        }
+
+        public static double Area(double Width, double Length)
+        {
+            return Width * Length;
+        }
+
+        public static double Perimeter(double Width, double Length)
+        {
+            return (2 * Width) + (2 * Length);
+
+        }
+
+        public static double Volume(double Width, double Length, double Height)
+        {
+            return (Length * Width * Height);
+
         }
     }
 }
